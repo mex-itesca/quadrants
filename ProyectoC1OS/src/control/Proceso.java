@@ -8,6 +8,10 @@ public class Proceso{
         cfgProcess();
     }
 
+    /* ............................................................................................................. */
+    /* .........................................Operaciones......................................................... */
+    /* ............................................................................................................. */
+    
     private String  generateHIP(){
         time.add(Calendar.SECOND, (ID == 100) ? SEG : (SEG += (((int)(Math.random()*(60-30)+30)))));
         return setFormat();
@@ -103,6 +107,10 @@ public class Proceso{
         data[ttls]    = generateTTLS();
     }
     
+    /* ............................................................................................................. */
+    /* .........................................Gettes.............................................................. */
+    /* ............................................................................................................. */
+    
     public String[] getData(){
         return data;
     }
@@ -170,6 +178,59 @@ public class Proceso{
     public String getTTLS(){
         return data[ttls];
     }
+    
+    /* ............................................................................................................. */
+    /* .........................................Settes.............................................................. */
+    /* ............................................................................................................. */
+    
+    public void setID(String nId){
+        data[id] = nId;
+    }
+
+    public void setHIP(String nHip){
+        data[hip] = nHip;
+    }
+
+    public void setTTP(String nTtp){
+        data[ttp] = nTtp;
+    }
+
+    public void setQuantum(String nQuant){
+        data[quantum] = nQuant;
+    }
+
+    public void setPRI(String nPri){
+        data[pri] = nPri;
+    }
+
+    public void setStatus(String nStatus){
+        data[status] = nStatus;
+    }
+
+
+    public void setTTSUC1(String nTtsuc1){
+        data[ttsuc1] = nTtsuc1;
+    }
+
+    public void setTTSUC2(String nTtsuc2){
+        data[ttsuc2] = nTtsuc2;
+    }
+
+    public void setHIBS(String nHibs){
+        data[hibs] = nHibs;
+    }
+
+    public void setTTBS(String nTtbs){
+        data[ttbs] = nTtbs;
+    }
+
+    public void setHILS(String nHils){
+        data[hils] = nHils;
+    }
+
+    public void setTTLS(String nTtls){
+        data[ttls] = nTtls;
+    }
 
     private String setFormat(){
         String hour = "";
@@ -187,6 +248,8 @@ public class Proceso{
     private Calendar time;
     
     private String []data = new String[16];
+    private boolean tSuc1 = false;
+    private boolean tSuc2 = false;
     
     private final int id = 0, hip = 1, ttp = 2, quantum = 3;
     private final int pri = 4, status = 5, suc1 = 6, hisuc1 = 7;
