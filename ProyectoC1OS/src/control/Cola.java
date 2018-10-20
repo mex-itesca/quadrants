@@ -11,7 +11,10 @@ public class Cola{
             resize();
         
         c[++index] = new Proceso();
-        if(initial != 4)orderByPRI();
+        if(initial != 4){
+            initial++;
+            orderByPRI();
+        }
     }
 
     private void orderByPRI(){
@@ -76,7 +79,7 @@ public class Cola{
         Proceso.reset();
     }
     
-    private int initial = 0;
+    private int initial = -1;
     private int index;
     private Proceso [] c;
 }
