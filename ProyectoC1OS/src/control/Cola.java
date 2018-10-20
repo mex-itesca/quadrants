@@ -11,7 +11,7 @@ public class Cola{
             resize();
         
         c[++index] = new Proceso();
-        orderByPRI();
+        if(initial != 4)orderByPRI();
     }
 
     private void orderByPRI(){
@@ -50,23 +50,33 @@ public class Cola{
         return c[i];
     }
 
-    public void delete(String id){
+    public Proceso delete(String id){
         int ind = find(id);
+        int count = 0;
+        Proceso tmp = null;
 
         if(ind != -1 ){
             Proceso []ctmp = new Proceso[index-1];
             for(int i=0;i<=index;i++){
                 if(i!=ind)
-                    ctmp[i] = c[i];
+                    ctmp[count] = c[i];
+                else {
+                    tmp = c[i];
+                    count--;
+                }
+                count++;
             } c = ctmp;
         }
+        
+        return tmp;
     }
     
     public void clean(){
         index = -1;
         Proceso.reset();
     }
-
+    
+    private int initial = 0;
     private int index;
     private Proceso [] c;
 }
